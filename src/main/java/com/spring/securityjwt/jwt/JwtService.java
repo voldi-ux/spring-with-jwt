@@ -71,7 +71,7 @@ public class JwtService {
     	 String username = user.getUsername();
     	 Date expirationDate = extractClaim(token, Claims::getExpiration);
     	 
-    	 return expirationDate.before(new Date()) && username.equals(extractUsername(token)); // 
+    	 return expirationDate.after(new Date()) && username.equals(extractUsername(token)); // 
     	 // we are want to make sure that the token has not expired and that it belongs to the user who is trying 
     	 // to access our resources
      }
